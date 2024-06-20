@@ -55,14 +55,30 @@ read -rd '' config <<'EOF'
 # https://github.com/glitchbook/minifetch
 
 print_info() {
-    info "\e[32mOS " kernel
-    info "\e[32mShell " shell
-    info "\e[33mUptime " uptime
-    info "\e[35mWM " wm
-    info "\e[34mPackages " packages
-    info "\e[33mMemory" memory
-    info "\e[31mUsers " users
+    info title
+    info underscore
+    
+    info "\e[02mOS " kernel
+    info "\e[02mShell " shell
+    info "\e[02mUptime " uptime
+    info "\e[02mWM " wm
+    info "\e[02mPackages " packages
+    info "\e[02mMemory" memory
+    info "\e[02mUsers " users
+    info "\e[02mMusic " song
+    
+    info cols
 }
+
+# Title
+
+
+# Hide/Show Fully qualified domain name.
+#
+# Default:  'off'
+# Values:   'on', 'off'
+# Flag:     --title_fqdn
+title_fqdn="off"
 
 # Shorten the output of the kernel function.
 kernel_shorthand="off"
@@ -103,6 +119,146 @@ refresh_rate="off"
 
 # Show Desktop Environment version
 de_version="on"
+
+# Song
+
+
+# Manually specify a music player.
+#
+# Default: 'auto'
+# Values:  'auto', 'player-name'
+# Flag:    --music_player
+#
+# Available values for 'player-name':
+#
+# amarok
+# audacious
+# banshee
+# bluemindo
+# clementine
+# cmus
+# deadbeef
+# deepin-music
+# dragon
+# elisa
+# exaile
+# gnome-music
+# gmusicbrowser
+# gogglesmm
+# guayadeque
+# io.elementary.music
+# iTunes
+# Music
+# juk
+# lollypop
+# MellowPlayer
+# mocp
+# mopidy
+# mpd
+# muine
+# netease-cloud-music
+# olivia
+# playerctl
+# pogo
+# pragha
+# qmmp
+# quodlibet
+# rhythmbox
+# sayonara
+# smplayer
+# spotify
+# strawberry
+# tauonmb
+# tomahawk
+# vlc
+# xmms2d
+# xnoise
+# yarock
+music_player="auto"
+
+# Format to display song information.
+#
+# Default: '%artist% - %album% - %title%'
+# Values:  '%artist%', '%album%', '%title%'
+# Flag:    --song_format
+#
+# Example:
+# default: 'Song: Jet - Get Born - Sgt Major'
+song_format="%artist% - %album% - %title%"
+
+# Print the Artist, Album and Title on separate lines
+#
+# Default: 'off'
+# Values:  'on', 'off'
+# Flag:    --song_shorthand
+#
+# Example:
+# on:  'Artist: The Fratellis'
+#      'Album: Costello Music'
+#      'Song: Chelsea Dagger'
+#
+# off: 'Song: The Fratellis - Costello Music - Chelsea Dagger'
+song_shorthand="off"
+
+# 'mpc' arguments (specify a host, password etc).
+#
+# Default:  ''
+# Example: mpc_args=(-h HOST -P PASSWORD)
+mpc_args=()
+
+# Color Blocks
+
+
+# Color block range
+# The range of colors to print.
+#
+# Default:  '0', '15'
+# Values:   'num'
+# Flag:     --block_range
+#
+# Example:
+#
+# Display colors 0-7 in the blocks.  (8 colors)
+# neofetch --block_range 0 7
+#
+# Display colors 0-15 in the blocks. (16 colors)
+# neofetch --block_range 0 15
+block_range=(0 15)
+
+# Toggle color blocks
+#
+# Default:  'on'
+# Values:   'on', 'off'
+# Flag:     --color_blocks
+color_blocks="on"
+
+# Color block width in spaces
+#
+# Default:  '3'
+# Values:   'num'
+# Flag:     --block_width
+block_width=3
+
+# Color block height in lines
+#
+# Default:  '1'
+# Values:   'num'
+# Flag:     --block_height
+block_height=1
+
+# Color Alignment
+#
+# Default: 'auto'
+# Values: 'auto', 'num'
+# Flag: --col_offset
+#
+# Number specifies how far from the left side of the terminal (in spaces) to
+# begin printing the columns, in case you want to e.g. center them under your
+# text.
+# Example:
+# col_offset="auto" - Default behavior of neofetch
+# col_offset=7      - Leave 7 spaces then print the colors
+col_offset="auto"
 
 # Text Colors
 # Values:   'distro', 'num' 'num' 'num' 'num' 'num' 'num'
@@ -193,7 +349,7 @@ image_source="${HOME}/.config/neofetch/ascii.txt"
 # Ascii distro (Which distro's ascii art to display).
 # Default: 'auto'
 # Values:  'auto', 'distro_name'
-ascii_distro="arch_small"
+ascii_distro="linux_small"
 
 # Ascii Colors
 # Values:   'distro', 'num' 'num' 'num' 'num' 'num' 'num'
