@@ -3,7 +3,7 @@ Minifetch is a minimalistic command-line system information tool written in `bas
 
 The overall purpose of Minifetch is to be used in screen-shots of your system. Minifetch shows the most important information other people want to see. There are other tools available for proper system statistic/diagnostics.
 
-The information by default is displayed alongside a small arch linux logo. (Hey, it looks good, okay?)
+The information by default is displayed alongside a tux logo. (Hey, he looks good, okay?)
 
 <img src="https://i.imgur.com/lUrkQBN.png" alt="neofetch" align="right" height="240px">
 
