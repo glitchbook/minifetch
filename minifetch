@@ -58,10 +58,11 @@ print_info() {
     info title
     info underscore
     
-    info "\e[02mOS " kernel
+    info "\e[02mOS " os
+    info "\e[02mKernel " kernel
     info "\e[02mShell " shell
     info "\e[02mUptime " uptime
-    info "\e[02mWM " wm
+    info "\e[02mDE " de
     info "\e[02mPackages " packages
     info "\e[02mMemory" memory
     info "\e[02mUsers " users
@@ -119,6 +120,29 @@ refresh_rate="off"
 
 # Show Desktop Environment version
 de_version="on"
+
+# Distro
+
+
+# Shorten the output of the distro function
+#
+# Default:  'off'
+# Values:   'on', 'tiny', 'off'
+# Flag:     --distro_shorthand
+# Supports: Everything except Windows and Haiku
+distro_shorthand="off"
+
+# Show/Hide OS Architecture.
+# Show 'x86_64', 'x86' and etc in 'Distro:' output.
+#
+# Default: 'on'
+# Values:  'on', 'off'
+# Flag:    --os_arch
+#
+# Example:
+# on:  'Arch Linux x86_64'
+# off: 'Arch Linux'
+os_arch="on"
 
 # Song
 
@@ -205,6 +229,17 @@ song_shorthand="off"
 # Default:  ''
 # Example: mpc_args=(-h HOST -P PASSWORD)
 mpc_args=()
+
+
+# Desktop Environment
+
+
+# Show Desktop Environment version
+#
+# Default: 'on'
+# Values:  'on', 'off'
+# Flag:    --de_version
+de_version="on"
 
 # Color Blocks
 
